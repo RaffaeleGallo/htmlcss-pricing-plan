@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lezioni di ingegneria del suono e produzione musicale con Raffaele Gallo. Confronta tre percorsi di apprendimento.">
+  <title>Lezioni e piani | Raffaele Gallo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-heading">
+      <h1>Il tuo percorso nel suono</h1>
+      <p>Lezioni di ingegneria del suono e produzione musicale con Raffaele Gallo.</p>
+    </header>
+
+    <!-- Radio con lo stesso name: una sola modalità selezionata alla volta. -->
+    <input class="sr-only billing-input" type="radio" name="billing" id="monthly" checked>
+    <input class="sr-only billing-input" type="radio" name="billing" id="yearly">
+    <div class="billing" role="group" aria-label="Periodicità del piano">
+      <label for="monthly">Mensile <span class="switch" aria-hidden="true"></span></label>
+      <label for="yearly">Annuale <span class="switch" aria-hidden="true"></span></label>
+    </div>
+
+    <section class="plans" aria-label="Confronto dei piani">
+      <article class="plan" aria-labelledby="basic">
+        <header class="plan-heading">
+          <h2 id="basic">Basic</h2>
+          <p>Per iniziare · 2 lezioni/mese</p>
+        </header>
+        <p class="price"><span class="currency">€</span><strong><span class="monthly-price">49</span><span class="annual-price">41,65</span></strong><span class="period">/mese</span></p>
+        <p class="discount">Annuale <span>−15%</span></p>
+        <a class="choose-plan" href="#informazioni" aria-label="Informazioni sul piano Basic">Scegli il piano</a>
+        <ul class="features">
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Fondamenti del suono</span></li>
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Registrazione e DAW</span></li>
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Produzione musicale</span></li>
+          <li><span class="feature-icon no" aria-hidden="true"></span><span><span class="sr-only">Non incluso: </span>Mixaggio avanzato</span></li>
+          <li><span class="feature-icon no" aria-hidden="true"></span><span><span class="sr-only">Non incluso: </span>Tecniche di mastering</span></li>
+          <li><span class="feature-icon no" aria-hidden="true"></span><span><span class="sr-only">Non incluso: </span>Revisione dei tuoi brani</span></li>
+        </ul>
+      </article>
+      <article class="plan plan-featured" aria-labelledby="professional">
+        <header class="plan-heading">
+          <h2 id="professional">Professional</h2>
+          <p>Consigliato · 4 lezioni/mese</p>
+        </header>
+        <p class="price"><span class="currency">€</span><strong><span class="monthly-price">99</span><span class="annual-price">84,15</span></strong><span class="period">/mese</span></p>
+        <p class="discount">Annuale <span>−15%</span></p>
+        <a class="choose-plan" href="#informazioni" aria-label="Informazioni sul piano Professional">Scegli il piano</a>
+        <ul class="features">
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Fondamenti del suono</span></li>
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Registrazione e DAW</span></li>
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Produzione musicale</span></li>
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Mixaggio avanzato</span></li>
+          <li><span class="feature-icon no" aria-hidden="true"></span><span><span class="sr-only">Non incluso: </span>Tecniche di mastering</span></li>
+          <li><span class="feature-icon no" aria-hidden="true"></span><span><span class="sr-only">Non incluso: </span>Revisione dei tuoi brani</span></li>
+        </ul>
+      </article>
+      <article class="plan" aria-labelledby="ultimate">
+        <header class="plan-heading">
+          <h2 id="ultimate">Ultimate</h2>
+          <p>Percorso completo · 8 lezioni/mese</p>
+        </header>
+        <p class="price"><span class="currency">€</span><strong><span class="monthly-price">179</span><span class="annual-price">152,15</span></strong><span class="period">/mese</span></p>
+        <p class="discount">Annuale <span>−15%</span></p>
+        <a class="choose-plan" href="#informazioni" aria-label="Informazioni sul piano Ultimate">Scegli il piano</a>
+        <ul class="features">
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Fondamenti del suono</span></li>
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Registrazione e DAW</span></li>
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Produzione musicale</span></li>
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Mixaggio avanzato</span></li>
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Tecniche di mastering</span></li>
+          <li><span class="feature-icon yes" aria-hidden="true"></span><span><span class="sr-only">Incluso: </span>Revisione dei tuoi brani</span></li>
+        </ul>
+      </article>
+    </section>
+    <footer class="information" id="informazioni" tabindex="-1">
+      <p><strong>Lezioni individuali di 60 minuti.</strong> Tutti i prezzi e i pacchetti sono dimostrativi: questa pagina è un esercizio Boolean e non permette acquisti o prenotazioni.</p>
+      <p>Con il piano annuale, il prezzo mostrato è l’equivalente mensile scontato del 15%. Totali annui: Basic 499,80 €, Professional 1.009,80 €, Ultimate 1.825,80 €.</p>
+    </footer>
+  </main>
+</body>
+</html>
