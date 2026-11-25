@@ -301,14 +301,20 @@ h2 {
 /* Tablet: (larghezza totale - un gap) / due colonne.
    flex-grow: 1 fa espandere la terza card fino a riempire la riga. */
 @media (min-width: 1000px) {
-  .plan {
-    flex-basis: calc((100% - var(--gap)) / 2);
+  h1 {
+    font-size: 40px;
   }
 
-  .plan:last-child .features li {
-    flex-basis: 50%;
-    padding-left: 7%;
+  /* Mantieni le altre regole tablet */
+}
+
+/* DESKTOP — deve rimanere dopo il tablet */
+@media (min-width: 1500px) {
+  h1 {
+    font-size: 48px;
   }
+
+  /* Mantieni le altre regole desktop */
 }
 
 /* Desktop: (larghezza totale - due gap) / tre colonne. */
