@@ -298,27 +298,28 @@ h2 {
   border: 0;
 }
 
-/* Tablet: (larghezza totale - un gap) / due colonne.
-   flex-grow: 1 fa espandere la terza card fino a riempire la riga. */
+/* Tablet: due card sulla prima riga; la terza riempie la seconda. */
 @media (min-width: 1000px) {
   h1 {
     font-size: 40px;
   }
 
-  /* Mantieni le altre regole tablet */
+  .plan {
+    flex-basis: calc((100% - var(--gap)) / 2);
+  }
+
+  .plan:last-child .features li {
+    flex-basis: 50%;
+    padding-left: 7%;
+  }
 }
 
-/* DESKTOP — deve rimanere dopo il tablet */
+/* Desktop: tre colonne. Questo blocco viene dopo quello tablet. */
 @media (min-width: 1500px) {
   h1 {
     font-size: 48px;
   }
 
-  /* Mantieni le altre regole desktop */
-}
-
-/* Desktop: (larghezza totale - due gap) / tre colonne. */
-@media (min-width: 1500px) {
   .plan {
     flex-basis: calc((100% - 2 * var(--gap)) / 3);
   }
@@ -327,78 +328,88 @@ h2 {
     flex-basis: 100%;
     padding-left: 0;
   }
+}
+
+/* Mobile: blocco indipendente, NON dentro la media query desktop. */
+@media (max-width: 999px) {
+  .page-heading {
+    flex-basis: 100%;
+    min-width: 0;
+  }
 
   h1 {
+    font-size: 40px;
+    line-height: 1.15;
+  }
+
+  .page-heading p {
+    margin-top: 12px;
+    line-height: 1.4;
+  }
+
+  .billing {
+    /* Una riga dedicata, con 40px di distanza dal paragrafo. */
+    flex-basis: 100%;
+    margin-top: 40px;
+  }
+
+  .plans {
+    margin-top: 90px;
+  }
+}
+
+/* Telefoni stretti: titolo più piccolo, senza forzarlo su una sola riga. */
+@media (max-width: 599px) {
+  .container {
+    width: calc(100% - 40px);
+    margin: 30px auto;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .plan {
+    padding: 35px 25px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  .plan-heading p,
+  .page-heading p {
+    font-size: 17px;
+  }
+
+  .features li {
+    font-size: 18px;
+    gap: 16px;
+  }
+
+  .price strong {
+    font-size: 64px;
+  }
+
+  #yearly:checked~.plans .price strong {
     font-size: 48px;
   }
 
-  /* Nel riferimento mobile il selettore va sotto al titolo. */
-  @media (max-width: 999px) {
-    .page-heading {
-      flex-basis: 100%;
-    }
-
-    .billing {
-      margin-top: 40px;
-    }
-
-    .plans {
-      margin-top: 90px;
-    }
+  .currency {
+    font-size: 24px;
   }
 
-  /* Telefoni più stretti dello screenshot: spazi e testo restano leggibili. */
-  @media (max-width: 599px) {
-    .container {
-      width: calc(100% - 40px);
-      margin: 30px auto;
-    }
-
-    h1 {
-      font-size: 40px;
-    }
-
-    .plan {
-      padding: 35px 25px;
-    }
-
-    h2 {
-      font-size: 32px;
-    }
-
-    .plan-heading p,
-    .page-heading p {
-      font-size: 17px;
-    }
-
-    .features li {
-      font-size: 18px;
-      gap: 16px;
-    }
-
-    .price strong {
-      font-size: 64px;
-    }
-
-    #yearly:checked~.plans .price strong {
-      font-size: 48px;
-    }
-
-    .currency {
-      font-size: 24px;
-    }
-
-    .period {
-      font-size: 18px;
-    }
-
-    .billing {
-      font-size: 17px;
-      gap: 16px;
-    }
-
-    .choose-plan {
-      font-size: 21px;
-      padding: 24px 10px;
-    }
+  .period {
+    font-size: 18px;
   }
+
+  .billing {
+    font-size: 17px;
+    gap: 16px;
+  }
+
+  .choose-plan {
+    font-size: 21px;
+    padding: 24px 10px;
+  }
+}
