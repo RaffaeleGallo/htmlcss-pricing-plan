@@ -26,9 +26,21 @@ body {
   align-items: flex-start;
 }
 
-.page-heading { flex: 1 1 900px; }
-h1 { font-size: 60px; line-height: 1.1; }
-.page-heading p { color: var(--muted); font-size: 20px; line-height: 1.2; margin-top: 4px; }
+.page-heading {
+  flex: 1 1 900px;
+}
+
+h1 {
+  font-size: 60px;
+  line-height: 1.1;
+}
+
+.page-heading p {
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.2;
+  margin-top: 4px;
+}
 
 .billing {
   display: flex;
@@ -38,18 +50,62 @@ h1 { font-size: 60px; line-height: 1.1; }
   font-size: 20px;
   color: var(--muted);
 }
-.billing label { display: flex; align-items: center; gap: 10px; cursor: pointer; }
-.switch { width: 40px; height: 26px; border: 2px solid var(--muted); border-radius: 20px; position: relative; }
-.switch::after { content: ""; position: absolute; top: 0; left: 0; width: 22px; height: 22px; border: 1px solid var(--muted); border-radius: 50%; background: white; }
-#monthly:checked ~ .billing label[for="monthly"] .switch,
-#yearly:checked ~ .billing label[for="yearly"] .switch { background: black; border-color: black; }
-#monthly:checked ~ .billing label[for="monthly"] .switch::after,
-#yearly:checked ~ .billing label[for="yearly"] .switch::after { left: 14px; border-color: black; }
-#monthly:focus-visible ~ .billing label[for="monthly"],
-#yearly:focus-visible ~ .billing label[for="yearly"] { outline: 3px solid var(--purple); outline-offset: 6px; border-radius: 4px; }
+
+.billing label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.switch {
+  width: 40px;
+  height: 26px;
+  border: 2px solid var(--muted);
+  border-radius: 20px;
+  position: relative;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--muted);
+  border-radius: 50%;
+  background: white;
+}
+
+#monthly:checked~.billing label[for="monthly"] .switch,
+#yearly:checked~.billing label[for="yearly"] .switch {
+  background: black;
+  border-color: black;
+}
+
+#monthly:checked~.billing label[for="monthly"] .switch::after,
+#yearly:checked~.billing label[for="yearly"] .switch::after {
+  left: 14px;
+  border-color: black;
+}
+
+#monthly:focus-visible~.billing label[for="monthly"],
+#yearly:focus-visible~.billing label[for="yearly"] {
+  outline: 3px solid var(--purple);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
 
 /* Mobile first: una card per riga. Il gap separa sia righe sia colonne. */
-.plans { display: flex; flex-wrap: wrap; gap: var(--gap); width: 100%; margin-top: 110px; }
+.plans {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  width: 100%;
+  margin-top: 110px;
+}
+
 .plan {
   flex: 1 1 100%;
   min-width: 0;
@@ -57,68 +113,286 @@ h1 { font-size: 60px; line-height: 1.1; }
   border-radius: 30px;
   box-shadow: 0 10px 20px rgb(0 0 0 / 13%);
 }
-.plan-featured { background: var(--purple); color: white; }
-h2 { font-size: 40px; line-height: 1.1; overflow-wrap: anywhere; }
-.plan-heading p { font-size: 20px; color: var(--muted); line-height: 1.2; }
-.plan-featured .plan-heading p, .plan-featured .period { color: white; }
-.price { display: flex; justify-content: center; align-items: baseline; gap: 6px; margin-top: 30px; white-space: nowrap; }
-.currency { font-size: 30px; font-weight: bold; }
-.price strong { font-size: 80px; line-height: 1.2; letter-spacing: -2px; }
-.period { font-size: 23px; color: var(--muted); }
-.annual-price { display: none; }
-#yearly:checked ~ .plans .monthly-price { display: none; }
-#yearly:checked ~ .plans .annual-price { display: inline; }
+
+.plan-featured {
+  background: var(--purple);
+  color: white;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.plan-heading p {
+  font-size: 20px;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.plan-featured .plan-heading p,
+.plan-featured .period {
+  color: white;
+}
+
+.price {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 30px;
+  white-space: nowrap;
+}
+
+.currency {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.price strong {
+  font-size: 80px;
+  line-height: 1.2;
+  letter-spacing: -2px;
+}
+
+.period {
+  font-size: 23px;
+  color: var(--muted);
+}
+
+.annual-price {
+  display: none;
+}
+
+#yearly:checked~.plans .monthly-price {
+  display: none;
+}
+
+#yearly:checked~.plans .annual-price {
+  display: inline;
+}
+
 /* I prezzi annuali hanno più cifre: conserviamo spazio anche nelle card strette. */
-#yearly:checked ~ .plans .price strong { font-size: 64px; }
-.discount { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 32px; font-size: 20px; }
-.discount span { padding: 10px; background: #e3e3e3; color: black; border-radius: 10px; }
-.choose-plan { display: block; text-align: center; background: var(--purple); color: white; text-decoration: none; font-size: 24px; font-weight: bold; padding: 28px 12px; margin-top: 30px; border-radius: 20px; }
-.plan-featured .choose-plan { background: white; color: var(--purple); }
-.choose-plan:hover { filter: brightness(.93); }
-.choose-plan:focus-visible { outline: 3px solid currentColor; outline-offset: 5px; }
-.features { display: flex; flex-wrap: wrap; list-style: none; margin-top: 18px; margin-bottom: 14px; }
-.features li { flex: 0 0 100%; min-width: 0; display: flex; align-items: center; gap: 28px; font-size: 23px; line-height: 1.3; padding: 17px 0; }
-.feature-icon { position: relative; flex: 0 0 34px; height: 30px; }
+#yearly:checked~.plans .price strong {
+  font-size: 64px;
+}
+
+.discount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 32px;
+  font-size: 20px;
+}
+
+.discount span {
+  padding: 10px;
+  background: #e3e3e3;
+  color: black;
+  border-radius: 10px;
+}
+
+.choose-plan {
+  display: block;
+  text-align: center;
+  background: var(--purple);
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 28px 12px;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+
+.plan-featured .choose-plan {
+  background: white;
+  color: var(--purple);
+}
+
+.choose-plan:hover {
+  filter: brightness(.93);
+}
+
+.choose-plan:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 5px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-top: 18px;
+  margin-bottom: 14px;
+}
+
+.features li {
+  flex: 0 0 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 23px;
+  line-height: 1.3;
+  padding: 17px 0;
+}
+
+.feature-icon {
+  position: relative;
+  flex: 0 0 34px;
+  height: 30px;
+}
+
 /* Icone disegnate in CSS: nessun font o libreria da scaricare. */
-.yes::before { content: ""; position: absolute; left: 9px; top: 1px; width: 13px; height: 25px; border: solid currentColor; border-width: 0 3px 3px 0; transform: rotate(40deg); }
-.no::before, .no::after { content: ""; position: absolute; width: 40px; height: 2px; background: currentColor; top: 14px; left: -3px; transform: rotate(45deg); }
-.no::after { transform: rotate(-45deg); }
-.information { color: #666; font-size: 14px; line-height: 1.6; margin-top: 35px; }
-.information p + p { margin-top: 8px; }
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.yes::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 1px;
+  width: 13px;
+  height: 25px;
+  border: solid currentColor;
+  border-width: 0 3px 3px 0;
+  transform: rotate(40deg);
+}
+
+.no::before,
+.no::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background: currentColor;
+  top: 14px;
+  left: -3px;
+  transform: rotate(45deg);
+}
+
+.no::after {
+  transform: rotate(-45deg);
+}
+
+.information {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 35px;
+}
+
+.information p+p {
+  margin-top: 8px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* Tablet: (larghezza totale - un gap) / due colonne.
    flex-grow: 1 fa espandere la terza card fino a riempire la riga. */
 @media (min-width: 1000px) {
-  .plan { flex-basis: calc((100% - var(--gap)) / 2); }
-  .plan:last-child .features li { flex-basis: 50%; padding-left: 7%; }
+  .plan {
+    flex-basis: calc((100% - var(--gap)) / 2);
+  }
+
+  .plan:last-child .features li {
+    flex-basis: 50%;
+    padding-left: 7%;
+  }
 }
 
 /* Desktop: (larghezza totale - due gap) / tre colonne. */
 @media (min-width: 1500px) {
-  .plan { flex-basis: calc((100% - 2 * var(--gap)) / 3); }
-  .plan:last-child .features li { flex-basis: 100%; padding-left: 0; }
-}
+  .plan {
+    flex-basis: calc((100% - 2 * var(--gap)) / 3);
+  }
 
-/* Nel riferimento mobile il selettore va sotto al titolo. */
-@media (max-width: 999px) {
-  .page-heading { flex-basis: 100%; }
-  .billing { margin-top: 40px; }
-  .plans { margin-top: 90px; }
-}
+  .plan:last-child .features li {
+    flex-basis: 100%;
+    padding-left: 0;
+  }
 
-/* Telefoni più stretti dello screenshot: spazi e testo restano leggibili. */
-@media (max-width: 599px) {
-  .container { width: calc(100% - 40px); margin: 30px auto; }
-  h1 { font-size: 40px; }
-  .plan { padding: 35px 25px; }
-  h2 { font-size: 32px; }
-  .plan-heading p, .page-heading p { font-size: 17px; }
-  .features li { font-size: 18px; gap: 16px; }
-  .price strong { font-size: 64px; }
-  #yearly:checked ~ .plans .price strong { font-size: 48px; }
-  .currency { font-size: 24px; }
-  .period { font-size: 18px; }
-  .billing { font-size: 17px; gap: 16px; }
-  .choose-plan { font-size: 21px; padding: 24px 10px; }
-}
+  h1 {
+    font-size: 48px;
+  }
+
+  /* Nel riferimento mobile il selettore va sotto al titolo. */
+  @media (max-width: 999px) {
+    .page-heading {
+      flex-basis: 100%;
+    }
+
+    .billing {
+      margin-top: 40px;
+    }
+
+    .plans {
+      margin-top: 90px;
+    }
+  }
+
+  /* Telefoni più stretti dello screenshot: spazi e testo restano leggibili. */
+  @media (max-width: 599px) {
+    .container {
+      width: calc(100% - 40px);
+      margin: 30px auto;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    .plan {
+      padding: 35px 25px;
+    }
+
+    h2 {
+      font-size: 32px;
+    }
+
+    .plan-heading p,
+    .page-heading p {
+      font-size: 17px;
+    }
+
+    .features li {
+      font-size: 18px;
+      gap: 16px;
+    }
+
+    .price strong {
+      font-size: 64px;
+    }
+
+    #yearly:checked~.plans .price strong {
+      font-size: 48px;
+    }
+
+    .currency {
+      font-size: 24px;
+    }
+
+    .period {
+      font-size: 18px;
+    }
+
+    .billing {
+      font-size: 17px;
+      gap: 16px;
+    }
+
+    .choose-plan {
+      font-size: 21px;
+      padding: 24px 10px;
+    }
+  }
